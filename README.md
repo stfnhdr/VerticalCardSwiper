@@ -8,12 +8,16 @@
 
 <div align="center">
     <!-- build status -->
-    <a href="https://travis-ci.org/JoniVR/VerticalCardSwiper">
-        <img src="https://travis-ci.org/JoniVR/VerticalCardSwiper.svg?branch=master"  alt="build status">
+    <a href="https://github.com/JoniVR/VerticalCardSwiper/actions">
+        <img src="https://github.com/JoniVR/VerticalCardSwiper/workflows/build/badge.svg" alt="build status">
     </a>
     <!-- pod version -->
     <a href="https://cocoapods.org/pods/VerticalCardSwiper">
         <img src="https://img.shields.io/cocoapods/v/VerticalCardSwiper.svg?style=flat"  alt="cocoapods version">
+    </a>
+    <!-- carthage compatible -->
+    <a href="https://github.com/Carthage/Carthage">
+        <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"  alt="Carthage compatible">
     </a>
     <!-- license -->
     <a href="https://github.com/JoniVR/VerticalCardSwiper/blob/master/LICENSE">
@@ -41,15 +45,21 @@ The idea behind this is that in some cases, you don't want to swipe away cards, 
 It's built with a `UICollectionView` and a custom flowLayout.
 
 ## Requirements
-* iOS 9.0
-* Swift 5.0
+* iOS 9.0+
+* Swift 5
 
 ## Installation
-VerticalCardSwiper is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
 
+### CocoaPods
+To install with [CocoaPods](https://cocoapods.org), simply add the following line to your Podfile:
 ```ruby
 pod 'VerticalCardSwiper'
+```
+
+### Carthage
+To install with [Carthage](https://github.com/Carthage/Carthage), simply add the following line to your Podfile:
+```ruby
+github "JoniVR/VerticalCardSwiper"
 ```
 
 ## Example
@@ -141,6 +151,16 @@ cardSwiper.focussedCardIndex
 cardSwiper.scrollToCard(at: Int, animated: Bool) -> Bool
 ```
 
+##### Get a card at a specified index
+```swift
+cardSwiper.cardForItem(at: Int) -> CardCell?
+```
+
+##### Swipe a card away programatically
+```swift
+cardSwiper.swipeCardAwayProgrammatically(at: Int, to: SwipeDirection, withDuration: TimeInterval = 0.3) -> Bool
+```
+
 ##### Moving/Deleting/Inserting cards at runtime
 Make sure to update your datasource first, otherwise an error will occur.
 ```swift
@@ -169,6 +189,11 @@ class ViewController: UIViewController, VerticalCardSwiperDelegate {
     func didSwipeCardAway(card: CardCell, index: Int, swipeDirection: CellSwipeDirection) {
 
         // handle swipe gestures (optional).
+    }
+    
+    func didCancelSwipe(card: CardCell, index: Int) {
+        
+        // Called when a card swipe is cancelled (when the threshold wasn't reached)
     }
     
     func sizeForItem(verticalCardSwiperView: VerticalCardSwiperView, index: Int) -> CGSize {
@@ -212,13 +237,15 @@ class ExampleCardCell: CardCell {
 }
 ```
 
-## Features
+## Key Features
 - [x] Shazam Discover UI with paging
 - [x] Tinder-style swiping
 - [x] Option to disable side swiping
+- [x] Set custom number of stacked cards
 - [x] Code documentation in README.md file
 - [x] Cocoapods support
-- [ ] Carthage support
+- [x] Carthage support
+- [x] SPM support
 - [ ] Diff support
 
 ## Author
@@ -229,3 +256,4 @@ VerticalCardSwiper is available under the MIT license. See the LICENSE file for 
 
 ## More
 Feel free to submit a pull request, open an issue or fork this project. Any help is always appreciated.
+A big thank you to all the [contributors](https://github.com/JoniVR/VerticalCardSwiper/graphs/contributors)! 

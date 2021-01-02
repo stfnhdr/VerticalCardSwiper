@@ -21,6 +21,7 @@
 // SOFTWARE.
 
 import Foundation
+import UIKit
 
 /// This delegate is used for delegating `VerticalCardSwiper` actions.
 @objc public protocol VerticalCardSwiperDelegate: class {
@@ -41,6 +42,13 @@ import Foundation
      - parameter swipeDirection: The direction the card is swiped in. This can be Left, Right or None.
      */
     @objc optional func didSwipeCardAway(card: CardCell, index: Int, swipeDirection: SwipeDirection)
+
+    /**
+     Called when a swipe is aborted because the minimum threshold wasn't reached.
+     - parameter card: The CardCell that was swiped.
+     - parameter index: The index of the was swiped.
+    */
+    @objc optional func didCancelSwipe(card: CardCell, index: Int)
 
     /**
      Called while the user is dragging a card to a side.

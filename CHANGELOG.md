@@ -1,5 +1,52 @@
 # Change Log
 
+## [2.3.0](https://github.com/JoniVR/VerticalCardSwiper/releases/tag/2.3.0) (Oct 4, 2020)
+
+#### Enhancements
+
+- Added `cardForItem` function to `VerticalCardSwiper`.
+
+#### Bug fixes
+
+- Fixed scale animation to transform both x and y values ([#76](https://github.com/JoniVR/VerticalCardSwiper/pull/76)) - thanks [@elfanek](https://github.com/elfanek).
+
+## [2.2.0](https://github.com/JoniVR/VerticalCardSwiper/releases/tag/2.2.0) (Feb 23, 2020)
+
+#### Enhancements
+
+- Added `didCancelSwipe` function to `VerticalCardSwiperDelegate`.
+
+#### Bug fixes
+
+- Fixed `swipeCardAwayProgrammatically` not working correctly in some cases.
+
+## [2.1.0](https://github.com/JoniVR/VerticalCardSwiper/releases/tag/2.1.0) (Jan 31, 2020)
+
+#### Enhancements
+
+- Add `swipeCardAwayProgrammatically` function to `VerticalCardSwiper`.
+- Add official Carthage support.
+- Update SPM support to 5.1.
+
+## [2.0.1](https://github.com/JoniVR/VerticalCardSwiper/releases/tag/2.0.1) (Aug 19, 2019)
+
+#### Bug fixes
+
+- Fixed paging algorithm not accounting for zero velocity.
+
+## [2.0.0](https://github.com/JoniVR/VerticalCardSwiper/releases/tag/2.0.0) (Jun 21, 2019)
+
+#### API breaking changes
+
+- Renamed `VerticalCardSwiper` property `focussedIndex` to `focussedCardIndex`.
+- Renamed `VerticalCardSwiper` property `isPreviousCardVisible` to `isStackingEnabled`.
+- Refactored `VerticalCardSwiper` property `indexesForVisibleCards` to **include stacked cards**. ‼️
+
+#### Enhancements
+
+- Added `isStackOnBottom` property to `VerticalCardSwiper`. ([#48](https://github.com/JoniVR/VerticalCardSwiper/pull/48)) - thanks [@stfnhdr](https://github.com/stfnhdr)
+- Added `stackedCardsCount` property to `VerticalCardSwiper`. ([#48](https://github.com/JoniVR/VerticalCardSwiper/pull/48)) - thanks [@stfnhdr](https://github.com/stfnhdr)
+
 ## [1.0.0](https://github.com/JoniVR/VerticalCardSwiper/releases/tag/1.0.0) (Apr 9, 2019)
 
 #### API breaking changes

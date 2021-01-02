@@ -84,6 +84,18 @@ class ExampleViewController: UIViewController, VerticalCardSwiperDelegate, Verti
         }
     }
 
+    @IBAction func pressLeftButton(_ sender: UIBarButtonItem) {
+        if let currentIndex = cardSwiper.focussedCardIndex {
+            _ = cardSwiper.swipeCardAwayProgrammatically(at: currentIndex, to: .Left)
+        }
+    }
+
+    @IBAction func pressRightButton(_ sender: UIBarButtonItem) {
+        if let currentIndex = cardSwiper.focussedCardIndex {
+            _ = cardSwiper.swipeCardAwayProgrammatically(at: currentIndex, to: .Right)
+        }
+    }
+
     @IBAction func pressScrollDown(_ sender: UIBarButtonItem) {
         if let currentIndex = cardSwiper.focussedCardIndex {
             _ = cardSwiper.scrollToCard(at: currentIndex + 1, animated: true)
@@ -109,7 +121,9 @@ class ExampleViewController: UIViewController, VerticalCardSwiperDelegate, Verti
 
     func willSwipeCardAway(card: CardCell, index: Int, swipeDirection: SwipeDirection) {
         // called right before the card animates off the screen.
-        contactsDemoData.remove(at: index)
+        if index < contactsDemoData.count {
+            contactsDemoData.remove(at: index)
+        }
     }
 
     func didSwipeCardAway(card: CardCell, index: Int, swipeDirection: SwipeDirection) {
