@@ -102,6 +102,10 @@ class ExampleViewController: UIViewController, VerticalCardSwiperDelegate, Verti
         }
     }
 
+    @IBAction func pressExpand(_ sender: UIBarButtonItem) {
+        cardSwiper.isExpaned.toggle()
+    }
+
     func cardForItemAt(verticalCardSwiperView: VerticalCardSwiperView, cardForItemAt index: Int) -> CardCell {
 
         if let cardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: "ExampleCell", for: index) as? ExampleCardCell {

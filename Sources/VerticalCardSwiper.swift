@@ -96,6 +96,22 @@ public class VerticalCardSwiper: UIView {
             flowLayout.stackedCardsCount = newValue
         }
     }
+    /// Sets if the viewlayout is stacked or expanded
+    @IBInspectable public var isExpaned: Bool = false {
+        willSet {
+            var layout: UICollectionViewLayout
+
+            if newValue {
+                layout = UICollectionViewFlowLayout()
+            } else {
+                layout = flowLayout
+            }
+
+            verticalCardSwiperView.setCollectionViewLayout(layout, animated: true) { [weak self] _ in
+                self?.scrollToCard(at: self?.focussedCardIndex ?? 0, animated: false)
+            }
+        }
+    }
     /**
      Returns an array of indexes (as Int) that are currently visible in the `VerticalCardSwiperView`.
      This includes cards that are stacked (behind the focussed card).
@@ -410,6 +426,7 @@ extension VerticalCardSwiper: UICollectionViewDelegate, UICollectionViewDataSour
      - Returns: True if scrolling succeeds. False if scrolling failed.
      Scrolling could fail due to the flowlayout not being set up yet or an incorrect index.
      */
+    @discardableResult
     public func scrollToCard(at index: Int, animated: Bool) -> Bool {
 
         /**

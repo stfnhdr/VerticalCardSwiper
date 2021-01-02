@@ -36,7 +36,7 @@ internal class VerticalCardSwiperFlowLayout: UICollectionViewFlowLayout {
     /// Allows you to set the view to Stack at the Top or at the Bottom. Default is `true`.
     internal var isStackOnBottom: Bool = true
     /// Sets how many cards of the stack are visible in the background. Default is 1.
-    internal var stackedCardsCount: Int = 1
+    internal var stackedCardsCount: Int = 2
 
     internal override func prepare() {
         super.prepare()
